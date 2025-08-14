@@ -54,12 +54,12 @@ export default function OrderConfirmation({
           <div className="lg:col-span-2 space-y-6">
             {/* Order Info Card */}
             <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-700 shadow-2xl">
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4 sm:gap-0">
                 <div className="flex items-center gap-3">
                   <Receipt className="w-6 h-6 text-accent-orange" />
-                  <h2 className="text-2xl font-bold">Order #{order.id}</h2>
+                  <h2 className="text-2xl font-bold">#{order.id}</h2>
                 </div>
-                <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2">
+                <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 w-auto self-start sm:self-auto">
                   <Package className="w-4 h-4" />
                   {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                 </span>

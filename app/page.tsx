@@ -186,7 +186,7 @@ export default function Home() {
 
   // Main shopping page
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white pt-20 md:pt-24">
       <Header
         cartItemCount={getTotalItems()}
         onCartClick={() => setIsCartOpen(true)}

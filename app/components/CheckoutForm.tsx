@@ -16,6 +16,15 @@ import {
 } from "lucide-react";
 import { CartItem, CustomerInfo } from "../types/coffee";
 import { validateCustomerInfo, CustomerInfoFormData } from "../lib/validation";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 interface CheckoutFormProps {
   cart: CartItem[];
@@ -189,17 +198,17 @@ export default function CheckoutForm({
                       <label className="block text-sm font-medium mb-2 text-gray-300">
                         First Name *
                       </label>
-                      <input
+                      <Input
                         type="text"
                         value={customerInfo.firstName}
                         onChange={(e) =>
                           handleInputChange("firstName", e.target.value)
                         }
-                        className={`w-full p-4 bg-gray-800 rounded-xl border ${
+                        className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 ${
                           errors.firstName
-                            ? "border-red-500"
-                            : "border-gray-600"
-                        } focus:border-accent-orange focus:outline-none transition-colors`}
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : "focus-visible:ring-accent-orange"
+                        }`}
                         placeholder="Enter your first name"
                       />
                       {errors.firstName && (
@@ -212,15 +221,17 @@ export default function CheckoutForm({
                       <label className="block text-sm font-medium mb-2 text-gray-300">
                         Last Name *
                       </label>
-                      <input
+                      <Input
                         type="text"
                         value={customerInfo.lastName}
                         onChange={(e) =>
                           handleInputChange("lastName", e.target.value)
                         }
-                        className={`w-full p-4 bg-gray-800 rounded-xl border ${
-                          errors.lastName ? "border-red-500" : "border-gray-600"
-                        } focus:border-accent-orange focus:outline-none transition-colors`}
+                        className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 ${
+                          errors.lastName
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : "focus-visible:ring-accent-orange"
+                        }`}
                         placeholder="Enter your last name"
                       />
                       {errors.lastName && (
@@ -243,16 +254,18 @@ export default function CheckoutForm({
                       Email Address *
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 z-10" />
+                      <Input
                         type="email"
                         value={customerInfo.email}
                         onChange={(e) =>
                           handleInputChange("email", e.target.value)
                         }
-                        className={`w-full p-4 pl-12 bg-gray-800 rounded-xl border ${
-                          errors.email ? "border-red-500" : "border-gray-600"
-                        } focus:border-accent-orange focus:outline-none transition-colors`}
+                        className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 pl-10 ${
+                          errors.email
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : "focus-visible:ring-accent-orange"
+                        }`}
                         placeholder="Enter your email address"
                       />
                     </div>
@@ -268,16 +281,18 @@ export default function CheckoutForm({
                       Phone Number *
                     </label>
                     <div className="relative">
-                      <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
+                      <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 z-10" />
+                      <Input
                         type="tel"
                         value={customerInfo.phone}
                         onChange={(e) =>
                           handleInputChange("phone", e.target.value)
                         }
-                        className={`w-full p-4 pl-12 bg-gray-800 rounded-xl border ${
-                          errors.phone ? "border-red-500" : "border-gray-600"
-                        } focus:border-accent-orange focus:outline-none transition-colors`}
+                        className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 pl-10 ${
+                          errors.phone
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : "focus-visible:ring-accent-orange"
+                        }`}
                         placeholder="Enter your phone number"
                       />
                     </div>
@@ -300,16 +315,18 @@ export default function CheckoutForm({
                       Street Address *
                     </label>
                     <div className="relative">
-                      <Building className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
+                      <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 z-10" />
+                      <Input
                         type="text"
                         value={customerInfo.address}
                         onChange={(e) =>
                           handleInputChange("address", e.target.value)
                         }
-                        className={`w-full p-4 pl-12 bg-gray-800 rounded-xl border ${
-                          errors.address ? "border-red-500" : "border-gray-600"
-                        } focus:border-accent-orange focus:outline-none transition-colors`}
+                        className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 pl-10 ${
+                          errors.address
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : "focus-visible:ring-accent-orange"
+                        }`}
                         placeholder="Enter your street address"
                       />
                     </div>
@@ -325,15 +342,17 @@ export default function CheckoutForm({
                       <label className="block text-sm font-medium mb-2 text-gray-300">
                         City *
                       </label>
-                      <input
+                      <Input
                         type="text"
                         value={customerInfo.city}
                         onChange={(e) =>
                           handleInputChange("city", e.target.value)
                         }
-                        className={`w-full p-4 bg-gray-800 rounded-xl border ${
-                          errors.city ? "border-red-500" : "border-gray-600"
-                        } focus:border-accent-orange focus:outline-none transition-colors`}
+                        className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 ${
+                          errors.city
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : "focus-visible:ring-accent-orange"
+                        }`}
                         placeholder="City"
                       />
                       {errors.city && (
@@ -346,17 +365,17 @@ export default function CheckoutForm({
                       <label className="block text-sm font-medium mb-2 text-gray-300">
                         Postal Code *
                       </label>
-                      <input
+                      <Input
                         type="text"
                         value={customerInfo.postalCode}
                         onChange={(e) =>
                           handleInputChange("postalCode", e.target.value)
                         }
-                        className={`w-full p-4 bg-gray-800 rounded-xl border ${
+                        className={`bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 ${
                           errors.postalCode
-                            ? "border-red-500"
-                            : "border-gray-600"
-                        } focus:border-accent-orange focus:outline-none transition-colors`}
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : "focus-visible:ring-accent-orange"
+                        }`}
                         placeholder="Postal Code"
                       />
                       {errors.postalCode && (
@@ -369,28 +388,57 @@ export default function CheckoutForm({
                       <label className="block text-sm font-medium mb-2 text-gray-300">
                         Country
                       </label>
-                      <select
+                      <Select
                         value={customerInfo.country}
-                        onChange={(e) =>
-                          handleInputChange("country", e.target.value)
+                        onValueChange={(value) =>
+                          handleInputChange("country", value)
                         }
-                        className="w-full p-4 bg-gray-800 rounded-xl border border-gray-600 focus:border-accent-orange focus:outline-none transition-colors"
                       >
-                        <option value="Germany">Germany</option>
-                        <option value="Austria">Austria</option>
-                        <option value="Switzerland">Switzerland</option>
-                        <option value="Netherlands">Netherlands</option>
-                        <option value="Thailand">Thailand</option>
-                      </select>
+                        <SelectTrigger className="bg-gray-800 border-gray-600 text-white focus:ring-accent-orange">
+                          <SelectValue placeholder="Select a country" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-gray-800 border-gray-600">
+                          <SelectItem
+                            value="Germany"
+                            className="text-white hover:bg-gray-700"
+                          >
+                            Germany
+                          </SelectItem>
+                          <SelectItem
+                            value="Austria"
+                            className="text-white hover:bg-gray-700"
+                          >
+                            Austria
+                          </SelectItem>
+                          <SelectItem
+                            value="Switzerland"
+                            className="text-white hover:bg-gray-700"
+                          >
+                            Switzerland
+                          </SelectItem>
+                          <SelectItem
+                            value="Netherlands"
+                            className="text-white hover:bg-gray-700"
+                          >
+                            Netherlands
+                          </SelectItem>
+                          <SelectItem
+                            value="Thailand"
+                            className="text-white hover:bg-gray-700"
+                          >
+                            Thailand
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
                   </div>
                 </div>
 
                 {/* Submit Button */}
-                <button
+                <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
+                  className={`w-full py-4 h-auto rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
                     isSubmitting
                       ? "bg-gray-600 cursor-not-allowed"
                       : "bg-gradient-to-r from-accent-orange to-orange-600 hover:from-orange-600 hover:to-orange-700 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
@@ -407,7 +455,7 @@ export default function CheckoutForm({
                       Place Order - {getTotalPrice()} €
                     </>
                   )}
-                </button>
+                </Button>
               </form>
             </div>
           </div>

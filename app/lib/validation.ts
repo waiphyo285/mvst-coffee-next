@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { CustomerInfo } from "../types/coffee";
 
 export const customerInfoSchema = z.object({
   firstName: z.string().min(1, "First name is required").trim(),

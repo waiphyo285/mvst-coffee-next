@@ -51,20 +51,21 @@ export default function CheckoutForm({
   const validateForm = () => {
     const validation = validateCustomerInfo(customerInfo);
     setErrors(validation.errors);
-    return validation.success;
+    return validation;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForm()) return;
+    const validation = validateForm();
+    if (!validation.success || !validation.data) return;
 
     setIsSubmitting(true);
 
     try {
       // Simulate API call delay
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      onSubmitOrder(customerInfo);
+      onSubmitOrder(validation.data);
     } catch (error) {
       console.error("Order submission failed:", error);
     } finally {
@@ -203,7 +204,7 @@ export default function CheckoutForm({
                       />
                       {errors.firstName && (
                         <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                          <span>⚠</span> {errors.firstName}
+                          {errors.firstName}
                         </p>
                       )}
                     </div>
@@ -224,7 +225,7 @@ export default function CheckoutForm({
                       />
                       {errors.lastName && (
                         <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                          <span>⚠</span> {errors.lastName}
+                          {errors.lastName}
                         </p>
                       )}
                     </div>
@@ -257,7 +258,7 @@ export default function CheckoutForm({
                     </div>
                     {errors.email && (
                       <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                        <span>⚠</span> {errors.email}
+                        {errors.email}
                       </p>
                     )}
                   </div>
@@ -282,7 +283,7 @@ export default function CheckoutForm({
                     </div>
                     {errors.phone && (
                       <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                        <span>⚠</span> {errors.phone}
+                        {errors.phone}
                       </p>
                     )}
                   </div>
@@ -314,7 +315,7 @@ export default function CheckoutForm({
                     </div>
                     {errors.address && (
                       <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                        <span>⚠</span> {errors.address}
+                        {errors.address}
                       </p>
                     )}
                   </div>
@@ -337,7 +338,7 @@ export default function CheckoutForm({
                       />
                       {errors.city && (
                         <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                          <span>⚠</span> {errors.city}
+                          {errors.city}
                         </p>
                       )}
                     </div>
@@ -360,7 +361,7 @@ export default function CheckoutForm({
                       />
                       {errors.postalCode && (
                         <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                          <span>⚠</span> {errors.postalCode}
+                          {errors.postalCode}
                         </p>
                       )}
                     </div>

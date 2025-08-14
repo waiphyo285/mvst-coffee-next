@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+@layer components {
+  .coffee-card {
+    @apply bg-gray-900 rounded-lg p-6 text-center transition-transform hover:scale-105;
+  }
+
+  .btn-primary {
+    @apply bg-accent-orange text-white px-6 py-3 rounded-full font-medium hover:bg-orange-600 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-colors;
+  }
+
+  .cart-modal {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4;
+  }
+
+  .cart-content {
+    @apply bg-gray-900 rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto;
+  }
+
+  .quantity-btn {
+    @apply bg-gray-700 text-white w-8 h-8 rounded flex items-center justify-center hover:bg-gray-600 transition-colors;
+  }
+}
